@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMedicamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMedicamentoLabel_idmedicamento}" for="idmedicamento" />
+                    <h:inputText id="idmedicamento" value="#{medicamentoController.selected.idmedicamento}" title="#{bundle.CreateMedicamentoTitle_idmedicamento}" required="true" requiredMessage="#{bundle.CreateMedicamentoRequiredMessage_idmedicamento}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicamentoLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{medicamentoController.selected.descripcion}" title="#{bundle.CreateMedicamentoTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateMedicamentoRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicamentoLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{medicamentoController.selected.codigo}" title="#{bundle.CreateMedicamentoTitle_codigo}" required="true" requiredMessage="#{bundle.CreateMedicamentoRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicamentoLabel_idprincactivo}" for="idprincactivo" />
+                    <h:selectOneMenu id="idprincactivo" value="#{medicamentoController.selected.idprincactivo}" title="#{bundle.CreateMedicamentoTitle_idprincactivo}" required="true" requiredMessage="#{bundle.CreateMedicamentoRequiredMessage_idprincactivo}">
+                        <f:selectItems value="#{principioActivoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{medicamentoController.create}" value="#{bundle.CreateMedicamentoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{medicamentoController.prepareList}" value="#{bundle.CreateMedicamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMedicamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

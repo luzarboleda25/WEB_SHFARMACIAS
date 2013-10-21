@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPrincipioActivoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPrincipioActivoEmpty}" rendered="#{principioActivoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{principioActivoController.items.rowCount > 0}">
+                    <h:outputText value="#{principioActivoController.pagination.pageFirstItem + 1}..#{principioActivoController.pagination.pageLastItem + 1}/#{principioActivoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{principioActivoController.previous}" value="#{bundle.Previous} #{principioActivoController.pagination.pageSize}" rendered="#{principioActivoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{principioActivoController.next}" value="#{bundle.Next} #{principioActivoController.pagination.pageSize}" rendered="#{principioActivoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{principioActivoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPrincipioActivoTitle_idprincipioactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprincipioactivo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPrincipioActivoTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{principioActivoController.prepareView}" value="#{bundle.ListPrincipioActivoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{principioActivoController.prepareEdit}" value="#{bundle.ListPrincipioActivoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{principioActivoController.destroy}" value="#{bundle.ListPrincipioActivoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{principioActivoController.prepareCreate}" value="#{bundle.ListPrincipioActivoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPrincipioActivoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

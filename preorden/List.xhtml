@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPreordenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPreordenEmpty}" rendered="#{preordenController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{preordenController.items.rowCount > 0}">
+                    <h:outputText value="#{preordenController.pagination.pageFirstItem + 1}..#{preordenController.pagination.pageLastItem + 1}/#{preordenController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{preordenController.previous}" value="#{bundle.Previous} #{preordenController.pagination.pageSize}" rendered="#{preordenController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{preordenController.next}" value="#{bundle.Next} #{preordenController.pagination.pageSize}" rendered="#{preordenController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{preordenController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_idpreorden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idpreorden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_fechainformemedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechainformemedico}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_diagnosticomedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnosticomedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_tipotratamiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipotratamiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_codcli}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codcli}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_idepol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idepol}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_numcert}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numcert}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_retiratipoid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.retiratipoid}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_retiranumid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.retiranumid}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_retiranombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.retiranombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_retiraapellido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.retiraapellido}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_retiratelefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.retiratelefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_aprobado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aprobado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_reconsiderar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reconsiderar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_reconsiderarObservaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reconsiderarObservaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_idmedico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idmedico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPreordenTitle_idcentroasist}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcentroasist}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{preordenController.prepareView}" value="#{bundle.ListPreordenViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{preordenController.prepareEdit}" value="#{bundle.ListPreordenEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{preordenController.destroy}" value="#{bundle.ListPreordenDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{preordenController.prepareCreate}" value="#{bundle.ListPreordenCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPreordenIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

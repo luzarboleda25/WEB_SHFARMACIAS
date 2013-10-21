@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTipoDocTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTipoDocLabel_idtipodoc}" for="idtipodoc" />
+                    <h:inputText id="idtipodoc" value="#{tipoDocController.selected.idtipodoc}" title="#{bundle.EditTipoDocTitle_idtipodoc}" required="true" requiredMessage="#{bundle.EditTipoDocRequiredMessage_idtipodoc}"/>
+                    <h:outputLabel value="#{bundle.EditTipoDocLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{tipoDocController.selected.nombre}" title="#{bundle.EditTipoDocTitle_nombre}" required="true" requiredMessage="#{bundle.EditTipoDocRequiredMessage_nombre}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tipoDocController.update}" value="#{bundle.EditTipoDocSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTipoDocViewLink}"/>
+                <br />
+                <h:commandLink action="#{tipoDocController.prepareList}" value="#{bundle.EditTipoDocShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTipoDocIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

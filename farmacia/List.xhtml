@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFarmaciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFarmaciaEmpty}" rendered="#{farmaciaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{farmaciaController.items.rowCount > 0}">
+                    <h:outputText value="#{farmaciaController.pagination.pageFirstItem + 1}..#{farmaciaController.pagination.pageLastItem + 1}/#{farmaciaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{farmaciaController.previous}" value="#{bundle.Previous} #{farmaciaController.pagination.pageSize}" rendered="#{farmaciaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{farmaciaController.next}" value="#{bundle.Next} #{farmaciaController.pagination.pageSize}" rendered="#{farmaciaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{farmaciaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFarmaciaTitle_idfarmacia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idfarmacia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFarmaciaTitle_rif}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rif}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFarmaciaTitle_razonSocial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.razonSocial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFarmaciaTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFarmaciaTitle_activo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFarmaciaTitle_idproveedor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idproveedor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{farmaciaController.prepareView}" value="#{bundle.ListFarmaciaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{farmaciaController.prepareEdit}" value="#{bundle.ListFarmaciaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{farmaciaController.destroy}" value="#{bundle.ListFarmaciaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{farmaciaController.prepareCreate}" value="#{bundle.ListFarmaciaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListFarmaciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

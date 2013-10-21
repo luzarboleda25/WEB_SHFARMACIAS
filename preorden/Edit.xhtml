@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPreordenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_idpreorden}" for="idpreorden" />
+                    <h:inputText id="idpreorden" value="#{preordenController.selected.idpreorden}" title="#{bundle.EditPreordenTitle_idpreorden}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_idpreorden}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{preordenController.selected.codigo}" title="#{bundle.EditPreordenTitle_codigo}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{preordenController.selected.fecha}" title="#{bundle.EditPreordenTitle_fecha}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_fechainformemedico}" for="fechainformemedico" />
+                    <h:inputText id="fechainformemedico" value="#{preordenController.selected.fechainformemedico}" title="#{bundle.EditPreordenTitle_fechainformemedico}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_fechainformemedico}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_diagnosticomedico}" for="diagnosticomedico" />
+                    <h:inputText id="diagnosticomedico" value="#{preordenController.selected.diagnosticomedico}" title="#{bundle.EditPreordenTitle_diagnosticomedico}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_diagnosticomedico}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_tipotratamiento}" for="tipotratamiento" />
+                    <h:inputText id="tipotratamiento" value="#{preordenController.selected.tipotratamiento}" title="#{bundle.EditPreordenTitle_tipotratamiento}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_tipotratamiento}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_codcli}" for="codcli" />
+                    <h:inputText id="codcli" value="#{preordenController.selected.codcli}" title="#{bundle.EditPreordenTitle_codcli}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_codcli}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_idepol}" for="idepol" />
+                    <h:inputText id="idepol" value="#{preordenController.selected.idepol}" title="#{bundle.EditPreordenTitle_idepol}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_idepol}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_numcert}" for="numcert" />
+                    <h:inputText id="numcert" value="#{preordenController.selected.numcert}" title="#{bundle.EditPreordenTitle_numcert}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_numcert}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_retiratipoid}" for="retiratipoid" />
+                    <h:inputText id="retiratipoid" value="#{preordenController.selected.retiratipoid}" title="#{bundle.EditPreordenTitle_retiratipoid}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_retiratipoid}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_retiranumid}" for="retiranumid" />
+                    <h:inputText id="retiranumid" value="#{preordenController.selected.retiranumid}" title="#{bundle.EditPreordenTitle_retiranumid}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_retiranumid}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_retiranombre}" for="retiranombre" />
+                    <h:inputText id="retiranombre" value="#{preordenController.selected.retiranombre}" title="#{bundle.EditPreordenTitle_retiranombre}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_retiranombre}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_retiraapellido}" for="retiraapellido" />
+                    <h:inputText id="retiraapellido" value="#{preordenController.selected.retiraapellido}" title="#{bundle.EditPreordenTitle_retiraapellido}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_retiraapellido}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_retiratelefono}" for="retiratelefono" />
+                    <h:inputText id="retiratelefono" value="#{preordenController.selected.retiratelefono}" title="#{bundle.EditPreordenTitle_retiratelefono}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_retiratelefono}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_aprobado}" for="aprobado" />
+                    <h:inputText id="aprobado" value="#{preordenController.selected.aprobado}" title="#{bundle.EditPreordenTitle_aprobado}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_aprobado}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{preordenController.selected.status}" title="#{bundle.EditPreordenTitle_status}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_reconsiderar}" for="reconsiderar" />
+                    <h:inputText id="reconsiderar" value="#{preordenController.selected.reconsiderar}" title="#{bundle.EditPreordenTitle_reconsiderar}" />
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_reconsiderarObservaciones}" for="reconsiderarObservaciones" />
+                    <h:inputTextarea rows="4" cols="30" id="reconsiderarObservaciones" value="#{preordenController.selected.reconsiderarObservaciones}" title="#{bundle.EditPreordenTitle_reconsiderarObservaciones}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_reconsiderarObservaciones}"/>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_idmedico}" for="idmedico" />
+                    <h:selectOneMenu id="idmedico" value="#{preordenController.selected.idmedico}" title="#{bundle.EditPreordenTitle_idmedico}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_idmedico}">
+                        <f:selectItems value="#{medicoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPreordenLabel_idcentroasist}" for="idcentroasist" />
+                    <h:selectOneMenu id="idcentroasist" value="#{preordenController.selected.idcentroasist}" title="#{bundle.EditPreordenTitle_idcentroasist}" required="true" requiredMessage="#{bundle.EditPreordenRequiredMessage_idcentroasist}">
+                        <f:selectItems value="#{centroAsistencialController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{preordenController.update}" value="#{bundle.EditPreordenSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPreordenViewLink}"/>
+                <br />
+                <h:commandLink action="#{preordenController.prepareList}" value="#{bundle.EditPreordenShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPreordenIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

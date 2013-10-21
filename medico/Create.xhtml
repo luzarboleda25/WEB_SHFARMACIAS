@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMedicoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_idmedico}" for="idmedico" />
+                    <h:inputText id="idmedico" value="#{medicoController.selected.idmedico}" title="#{bundle.CreateMedicoTitle_idmedico}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_idmedico}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_tipoid}" for="tipoid" />
+                    <h:inputText id="tipoid" value="#{medicoController.selected.tipoid}" title="#{bundle.CreateMedicoTitle_tipoid}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_tipoid}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_numid}" for="numid" />
+                    <h:inputText id="numid" value="#{medicoController.selected.numid}" title="#{bundle.CreateMedicoTitle_numid}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_numid}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{medicoController.selected.numero}" title="#{bundle.CreateMedicoTitle_numero}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{medicoController.selected.nombre}" title="#{bundle.CreateMedicoTitle_nombre}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{medicoController.selected.apellido}" title="#{bundle.CreateMedicoTitle_apellido}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_apellido}"/>
+                    <h:outputLabel value="#{bundle.CreateMedicoLabel_temporal}" for="temporal" />
+                    <h:inputText id="temporal" value="#{medicoController.selected.temporal}" title="#{bundle.CreateMedicoTitle_temporal}" required="true" requiredMessage="#{bundle.CreateMedicoRequiredMessage_temporal}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{medicoController.create}" value="#{bundle.CreateMedicoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{medicoController.prepareList}" value="#{bundle.CreateMedicoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMedicoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

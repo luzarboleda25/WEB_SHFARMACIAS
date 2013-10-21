@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFarmaciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFarmaciaLabel_idfarmacia}"/>
+                    <h:outputText value="#{farmaciaController.selected.idfarmacia}" title="#{bundle.ViewFarmaciaTitle_idfarmacia}"/>
+                    <h:outputText value="#{bundle.ViewFarmaciaLabel_rif}"/>
+                    <h:outputText value="#{farmaciaController.selected.rif}" title="#{bundle.ViewFarmaciaTitle_rif}"/>
+                    <h:outputText value="#{bundle.ViewFarmaciaLabel_razonSocial}"/>
+                    <h:outputText value="#{farmaciaController.selected.razonSocial}" title="#{bundle.ViewFarmaciaTitle_razonSocial}"/>
+                    <h:outputText value="#{bundle.ViewFarmaciaLabel_telefono}"/>
+                    <h:outputText value="#{farmaciaController.selected.telefono}" title="#{bundle.ViewFarmaciaTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewFarmaciaLabel_activo}"/>
+                    <h:outputText value="#{farmaciaController.selected.activo}" title="#{bundle.ViewFarmaciaTitle_activo}"/>
+                    <h:outputText value="#{bundle.ViewFarmaciaLabel_idproveedor}"/>
+                    <h:outputText value="#{farmaciaController.selected.idproveedor}" title="#{bundle.ViewFarmaciaTitle_idproveedor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{farmaciaController.destroyAndView}" value="#{bundle.ViewFarmaciaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFarmaciaEditLink}"/>
+                <br />
+                <h:commandLink action="#{farmaciaController.prepareCreate}" value="#{bundle.ViewFarmaciaCreateLink}" />
+                <br />
+                <h:commandLink action="#{farmaciaController.prepareList}" value="#{bundle.ViewFarmaciaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFarmaciaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

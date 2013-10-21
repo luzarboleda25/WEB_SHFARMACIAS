@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCentroAsistencialTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCentroAsistencialLabel_idcentroasistencial}"/>
+                    <h:outputText value="#{centroAsistencialController.selected.idcentroasistencial}" title="#{bundle.ViewCentroAsistencialTitle_idcentroasistencial}"/>
+                    <h:outputText value="#{bundle.ViewCentroAsistencialLabel_nombre}"/>
+                    <h:outputText value="#{centroAsistencialController.selected.nombre}" title="#{bundle.ViewCentroAsistencialTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewCentroAsistencialLabel_temporal}"/>
+                    <h:outputText value="#{centroAsistencialController.selected.temporal}" title="#{bundle.ViewCentroAsistencialTitle_temporal}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{centroAsistencialController.destroyAndView}" value="#{bundle.ViewCentroAsistencialDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCentroAsistencialEditLink}"/>
+                <br />
+                <h:commandLink action="#{centroAsistencialController.prepareCreate}" value="#{bundle.ViewCentroAsistencialCreateLink}" />
+                <br />
+                <h:commandLink action="#{centroAsistencialController.prepareList}" value="#{bundle.ViewCentroAsistencialShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCentroAsistencialIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPoArchivoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPoArchivoLabel_idpoarchivo}" for="idpoarchivo" />
+                    <h:inputText id="idpoarchivo" value="#{poArchivoController.selected.idpoarchivo}" title="#{bundle.EditPoArchivoTitle_idpoarchivo}" required="true" requiredMessage="#{bundle.EditPoArchivoRequiredMessage_idpoarchivo}"/>
+                    <h:outputLabel value="#{bundle.EditPoArchivoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{poArchivoController.selected.nombre}" title="#{bundle.EditPoArchivoTitle_nombre}" required="true" requiredMessage="#{bundle.EditPoArchivoRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditPoArchivoLabel_idtipodoc}" for="idtipodoc" />
+                    <h:selectOneMenu id="idtipodoc" value="#{poArchivoController.selected.idtipodoc}" title="#{bundle.EditPoArchivoTitle_idtipodoc}" required="true" requiredMessage="#{bundle.EditPoArchivoRequiredMessage_idtipodoc}">
+                        <f:selectItems value="#{tipoDocController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPoArchivoLabel_idpreorden}" for="idpreorden" />
+                    <h:selectOneMenu id="idpreorden" value="#{poArchivoController.selected.idpreorden}" title="#{bundle.EditPoArchivoTitle_idpreorden}" required="true" requiredMessage="#{bundle.EditPoArchivoRequiredMessage_idpreorden}">
+                        <f:selectItems value="#{preordenController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{poArchivoController.update}" value="#{bundle.EditPoArchivoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPoArchivoViewLink}"/>
+                <br />
+                <h:commandLink action="#{poArchivoController.prepareList}" value="#{bundle.EditPoArchivoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPoArchivoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPoMedicamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_idpomedicamento}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.idpomedicamento}" title="#{bundle.ViewPoMedicamentoTitle_idpomedicamento}"/>
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_duracion}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.duracion}" title="#{bundle.ViewPoMedicamentoTitle_duracion}"/>
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_cantidad}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.cantidad}" title="#{bundle.ViewPoMedicamentoTitle_cantidad}"/>
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_entregado}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.entregado}" title="#{bundle.ViewPoMedicamentoTitle_entregado}"/>
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_idpreorden}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.idpreorden}" title="#{bundle.ViewPoMedicamentoTitle_idpreorden}"/>
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_idmedicamento}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.idmedicamento}" title="#{bundle.ViewPoMedicamentoTitle_idmedicamento}"/>
+                    <h:outputText value="#{bundle.ViewPoMedicamentoLabel_iddosis}"/>
+                    <h:outputText value="#{poMedicamentoController.selected.iddosis}" title="#{bundle.ViewPoMedicamentoTitle_iddosis}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{poMedicamentoController.destroyAndView}" value="#{bundle.ViewPoMedicamentoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPoMedicamentoEditLink}"/>
+                <br />
+                <h:commandLink action="#{poMedicamentoController.prepareCreate}" value="#{bundle.ViewPoMedicamentoCreateLink}" />
+                <br />
+                <h:commandLink action="#{poMedicamentoController.prepareList}" value="#{bundle.ViewPoMedicamentoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPoMedicamentoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

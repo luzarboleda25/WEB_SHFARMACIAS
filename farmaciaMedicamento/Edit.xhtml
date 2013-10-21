@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFarmaciaMedicamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFarmaciaMedicamentoLabel_idfarmedi}" for="idfarmedi" />
+                    <h:inputText id="idfarmedi" value="#{farmaciaMedicamentoController.selected.idfarmedi}" title="#{bundle.EditFarmaciaMedicamentoTitle_idfarmedi}" required="true" requiredMessage="#{bundle.EditFarmaciaMedicamentoRequiredMessage_idfarmedi}"/>
+                    <h:outputLabel value="#{bundle.EditFarmaciaMedicamentoLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{farmaciaMedicamentoController.selected.precio}" title="#{bundle.EditFarmaciaMedicamentoTitle_precio}" required="true" requiredMessage="#{bundle.EditFarmaciaMedicamentoRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.EditFarmaciaMedicamentoLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{farmaciaMedicamentoController.selected.iva}" title="#{bundle.EditFarmaciaMedicamentoTitle_iva}" required="true" requiredMessage="#{bundle.EditFarmaciaMedicamentoRequiredMessage_iva}"/>
+                    <h:outputLabel value="#{bundle.EditFarmaciaMedicamentoLabel_idmedicamento}" for="idmedicamento" />
+                    <h:selectOneMenu id="idmedicamento" value="#{farmaciaMedicamentoController.selected.idmedicamento}" title="#{bundle.EditFarmaciaMedicamentoTitle_idmedicamento}" required="true" requiredMessage="#{bundle.EditFarmaciaMedicamentoRequiredMessage_idmedicamento}">
+                        <f:selectItems value="#{medicamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFarmaciaMedicamentoLabel_idfarmacia}" for="idfarmacia" />
+                    <h:selectOneMenu id="idfarmacia" value="#{farmaciaMedicamentoController.selected.idfarmacia}" title="#{bundle.EditFarmaciaMedicamentoTitle_idfarmacia}" required="true" requiredMessage="#{bundle.EditFarmaciaMedicamentoRequiredMessage_idfarmacia}">
+                        <f:selectItems value="#{farmaciaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{farmaciaMedicamentoController.update}" value="#{bundle.EditFarmaciaMedicamentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFarmaciaMedicamentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{farmaciaMedicamentoController.prepareList}" value="#{bundle.EditFarmaciaMedicamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFarmaciaMedicamentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

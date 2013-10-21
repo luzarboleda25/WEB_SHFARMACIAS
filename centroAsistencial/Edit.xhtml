@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCentroAsistencialTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCentroAsistencialLabel_idcentroasistencial}" for="idcentroasistencial" />
+                    <h:inputText id="idcentroasistencial" value="#{centroAsistencialController.selected.idcentroasistencial}" title="#{bundle.EditCentroAsistencialTitle_idcentroasistencial}" required="true" requiredMessage="#{bundle.EditCentroAsistencialRequiredMessage_idcentroasistencial}"/>
+                    <h:outputLabel value="#{bundle.EditCentroAsistencialLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{centroAsistencialController.selected.nombre}" title="#{bundle.EditCentroAsistencialTitle_nombre}" required="true" requiredMessage="#{bundle.EditCentroAsistencialRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditCentroAsistencialLabel_temporal}" for="temporal" />
+                    <h:inputText id="temporal" value="#{centroAsistencialController.selected.temporal}" title="#{bundle.EditCentroAsistencialTitle_temporal}" required="true" requiredMessage="#{bundle.EditCentroAsistencialRequiredMessage_temporal}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{centroAsistencialController.update}" value="#{bundle.EditCentroAsistencialSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCentroAsistencialViewLink}"/>
+                <br />
+                <h:commandLink action="#{centroAsistencialController.prepareList}" value="#{bundle.EditCentroAsistencialShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCentroAsistencialIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

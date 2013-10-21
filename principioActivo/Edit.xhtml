@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPrincipioActivoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPrincipioActivoLabel_idprincipioactivo}" for="idprincipioactivo" />
+                    <h:inputText id="idprincipioactivo" value="#{principioActivoController.selected.idprincipioactivo}" title="#{bundle.EditPrincipioActivoTitle_idprincipioactivo}" required="true" requiredMessage="#{bundle.EditPrincipioActivoRequiredMessage_idprincipioactivo}"/>
+                    <h:outputLabel value="#{bundle.EditPrincipioActivoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{principioActivoController.selected.nombre}" title="#{bundle.EditPrincipioActivoTitle_nombre}" required="true" requiredMessage="#{bundle.EditPrincipioActivoRequiredMessage_nombre}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{principioActivoController.update}" value="#{bundle.EditPrincipioActivoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPrincipioActivoViewLink}"/>
+                <br />
+                <h:commandLink action="#{principioActivoController.prepareList}" value="#{bundle.EditPrincipioActivoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPrincipioActivoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
